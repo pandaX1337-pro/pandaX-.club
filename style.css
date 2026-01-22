@@ -1,0 +1,137 @@
+/* Основной фон */
+body {
+    margin: 0;
+    padding: 0;
+    background: #050505; /* Глубокий черный */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+/* 2. Эффект фона 16:9 (пропорции как в кино) */
+.background-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 56.25vw; 
+    background: radial-gradient(circle, #0a2d4d 0%, #020b14 75%);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* 3. Контейнер контента */
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Контейнер для центрирования аватарки */
+.profile-area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* Сама аватарка */
+.main-avatar {
+    width: 140px;           /* Ширина круга */
+    height: 140px;          /* Высота круга (должна быть равна ширине) */
+    border-radius: 50%;     /* Это делает картинку круглой */
+    object-fit: cover;      /* Чтобы панда не сжималась, а обрезалась по кругу */
+    
+    /* Неоновый контур и свечение */
+    border: 3px solid #00d4ff; 
+    box-shadow: 0 0 15px #00d4ff, 
+                0 0 30px rgba(0, 212, 255, 0.4);
+    
+    transition: 0.3s;       /* Плавность при наведении */
+}
+
+/* Эффект при наведении мышкой */
+.main-avatar:hover {
+    transform: scale(1.05); /* Чуть увеличивается */
+    box-shadow: 0 0 40px #00d4ff; /* Светится ярче */
+}
+.main-avatar:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+}
+
+/* 5. Заголовки и текст */
+.title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00d4ff;
+}
+
+.description {
+    font-size: 16px;
+    color: #a0c0d0;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 6. Сетка кнопок (2 колонки, как на макете) */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+/* 7. Неоновые кнопки */
+.neon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px;
+    border: 2px solid #00d4ff;
+    border-radius: 12px;
+    font-weight: 600;
+    background: rgba(0, 212, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Иконки внутри кнопок */
+.neon-button i {
+    margin-right: 12px;
+    font-size: 1.2em;
+}
+
+.neon-button:hover {
+    background: rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 25px #00d4ff;
+    transform: translateY(-3px);
+}
+
+/* 8. Кнопка на всю ширину (для Steam) */
+.full-width {
+    grid-column: span 2;
+}
+
+/* 9. Текст внизу */
+.footer-text {
+    margin-top: 40px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* 10. Адаптация для мобильных телефонов */
+@media (max-width: 600px) {
+    .links-grid {
+        grid-template-columns: 1fr; /* На телефоне кнопки в один ряд */
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+}
